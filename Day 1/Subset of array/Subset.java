@@ -14,7 +14,7 @@ class Subset
         for(int i=0;i<n;i++)
         {
          System.out.println("Enter array elements");
-        arr[i]=obj.next().charAt(0);;
+        arr[i]=obj.next().charAt(0); // nextChar jaisi koi chej nahi hoti to sring input ka chat at(0) uthaya
         }
        int ts=(int)Math.pow(2,n);
        
