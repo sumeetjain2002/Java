@@ -5,8 +5,9 @@ public static void main(String Args[])
 {
 
 Scanner obj=new Scanner(System.in);
-int a=obj.nextInt();
-int arr[]=new int[a];
+int f=obj.nextInt();
+int arr[]=new int[f];
+System.out.println("Enter Elements in array");
 for(int i=0;i<arr.length;i++)
 {
 
@@ -17,8 +18,12 @@ arr[i]=obj.nextInt();
 System.out.println("Enter target");
 int x=obj.nextInt();
 // int res=fo(arr,x,0);
-int res=lo(arr,x,0);
-System.out.println("target is at: "+res);
+//int res=lo(arr,x,0);
+int a[]=all(arr,x,0,0);
+for(int i=0;i<a.length;i++)
+{
+    System.out.println("Sol is "+a[i]);
+}
 
 }
 
@@ -58,4 +63,27 @@ public static int lo(int arr[], int t, int id)      // last occurance
     }
     return ans;
 }
+
+// found all indices
+public static int [] all(int arr[], int t, int id, int c)
+{
+    if(id==arr.length)
+    {
+        int sol[]=new int [c];
+        return sol;
+    }
+    if(arr[id]==t)
+    {
+        c++;
+    }
+    int sol[]=all(arr,t,id+1,c);
+    if(arr[id]==t)
+    {
+        sol[c-1]=id;
+        c--;
+    }
+    return sol;
+}
+
+
 }
