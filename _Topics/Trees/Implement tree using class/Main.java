@@ -69,6 +69,67 @@ class Main{
        
 
        }
+ 
+       public static void levelorder(Node root)
+       {   Queue<Node> q=new LinkedList<>();             // levelorder traversal 
+            q.add(root);
+            q.add(null);
+          while(!q.isEmpty()){
+            Node curr=q.remove();
+            if(curr==null)
+            {
+                System.out.println();
+                
+                if(q.isEmpty())
+                {
+                    break;
+                }
+                else{
+                    q.add(null);
+                }
+            }
+            else
+            {   System.out.print(curr.data+" ");
+               if(curr.left!=null)
+               {
+                q.add(curr.left);
+               }
+                if(curr.right!=null)
+               {
+                q.add(curr.right);
+               }
+            }
+          }
+              
+       }
+
+       public static int count(Node root)
+       {if(root==null)
+       {
+        return 0;
+       }
+        int left=count(root.left);
+        int right=count(root.right);
+         return left+right+1;
+       }
+
+       public static int height(Node root)
+       {if(root==null)
+       {
+        return 0;
+       }
+        int left=height(root.left);
+        int right=height(root.right);
+        int ans=0;
+        if(right>=left)
+        {
+            ans=right;
+        }
+        else{
+            ans=left;
+        }
+        return ans+1;
+       }
     }
 public static void main(String Args[])
 {
@@ -77,12 +138,21 @@ Scanner obj=new Scanner(System.in);
 int arr[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
 Tree t=new Tree();
 Node res=t.build(arr);
-System.out.println("Tree head "+res.data);
-t.Preorder(res);
-System.out.println();
-t.inorder(res);
-System.out.println();
-t.postorder(res);
+// System.out.println("Tree head "+res.data);
+// t.Preorder(res);
+// System.out.println();
+// t.inorder(res);
+// System.out.println();
+// t.postorder(res);
+// System.out.println();
+// t.levelorder(res);
+// System.out.println();
+int count=t.count(res);
+int height=t.height(res);
+
+System.out.println(count);
+System.out.println(height);
+
 
 
 }
