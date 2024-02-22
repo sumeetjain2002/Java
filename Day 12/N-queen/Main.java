@@ -8,6 +8,7 @@ Scanner obj=new Scanner(System.in);
 int n=obj.nextInt();
 
 nqueen(new int [n][n],0,"");
+
 }
 public static void nqueen(int chess[][],int r,  String ans)
 {
@@ -55,3 +56,31 @@ public static boolean issafe(int chess[][],int r, int c)
     return true;
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,8 +16,14 @@ knightTour(arr,i,j,start);
 }
 
 public static void knightTour(int arr[][], int n, int m, int start)
-{   if(start==arr.length*arr.length+1)
+{   if(n<0 || m<0 || m>=arr.length|| n>=arr.length || arr[n][m]!=0)   // base case
     {
+        return;
+    }
+    
+    if(start==arr.length*arr.length)
+    {   
+        arr[n][m]=start+1;
         for(int i=0;i<arr.length;i++)   // print case at end
         {
         for(int j=0;j<arr.length;j++)
@@ -27,13 +33,11 @@ public static void knightTour(int arr[][], int n, int m, int start)
         System.out.println();
         }
         System.out.println("---------------");
+        arr[n][m]=0;
         return;
     }
 
-    if(n<0 || m<0 || m>=arr.length|| n>=arr.length || arr[n][m]!=0)   // base case
-    {
-        return;
-    }
+    
     arr[n][m]=start;
     knightTour(arr,n-2,m+1,start+1); //top right
     knightTour(arr,n-2,m-1,start+1); //top left
